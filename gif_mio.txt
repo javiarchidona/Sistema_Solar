@@ -1,0 +1,46 @@
+do for[i=1:1000] {plot 'resultados_posiciones.txt' u 1:2 w p ps 2 pt 7 lc "yellow" t "Sol", 'resultados_posiciones.txt' u 3:4 w p ps 0.2 pt 7 lc "blue" t "Mercurio", 'resultados_posiciones.txt' u 5:6 w p ps 0.3 pt 7 t "Venus", 'resultados_posiciones.txt' u 7:8 w p ps 0.4 pt 7 lc "blue" t "Tierra", 'resultados_posiciones.txt' u 9:10 w p ps 0.5 pt 7 lc "red" t "Marte", 'resultados_posiciones.txt' u 11:12 w p ps 1.5 pt 7 t "Jupiter", 'resultados_posiciones.txt' u 13:14 w p ps 1.25 pt 7 t "Saturno", 'resultados_posiciones.txt' u 15:16 w p ps 1 pt 7 t "Urano", 'resultados_posiciones.txt' u 17:18 w p ps 1.25 pt 7 t "Neptuno", 'resultados_posiciones.txt' u 19:20 w p ps 0.5 pt t "Pluton"}
+
+
+
+do for [ii=1:1000] {
+    plot 'resultados_posiciones.txt' u 3:4 every ::1::ii w l ls 1
+}
+
+
+set terminal gif animate delay 100
+set output 'SistemaSolarPOCHO.gif'
+stats 'resultados_posiciones.txt' nooutput
+do for [i=1:1000] {
+    plot "resultados_posiciones.txt" index (i-1) u 1:2 w p ps 2 pt 7 lc "yellow" set title "Sol", "resultados_posiciones.txt" index (i-1) u 3:4 w p ps 0.2 pt 7 lc "blue" set title "Mercurio", "resultados_posiciones.txt" index (i-1) u 5:6 w p ps 0.3 pt 7 set title "Venus", "resultados_posiciones.txt" index (i-1) u 7:8 w p ps 0.4 pt 7 lc "blue" set title "Tierra", "resultados_posiciones.txt" index (i-1) u 9:10 w p ps 0.5 pt 7 lc "red" set title "Marte", "resultados_posiciones.txt" index (i-1) u 11:12 w p ps 1.5 pt 7 set title "Jupiter", "resultados_posiciones.txt" index (i-1) u 13:14 w p ps 1.25 pt 7 set title "Saturno", "resultados_posiciones.txt" index (i-1) u 15:16 w p ps 1 pt 7 set title "Urano", "resultados_posiciones.txt" index (i-1) u 17:18 w p ps 1.25 pt 7 set title "Neptuno", "resultados_posiciones.txt" index (i-1) u 19:20 w p ps 0.5 pt set title "Pluton"}
+}
+
+
+set term gif size 500,500 animate delay 5 optimize
+set xrange[-40:40]
+set yrange[-40:40]
+set output "SistemaSolarWENO.gif"
+do for [i=1:99999:5] {plot 'resultados_posiciones.txt' u 3:4 every ::::i w l notitle, '' u 3:4 every ::i::i w p ps 0.2 pt 7 lc "blue" t 'Mercurio', 'resultados_posiciones.txt' u 5:6 every ::::i w l notitle, '' u 5:6 every ::i::i w p ps 0.3 pt 7 lc "green" t 'Venus', 'resultados_posiciones.txt' u 7:8 every ::::i w l notitle, '' u 7:8 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Tierra', 'resultados_posiciones.txt' u 9:10 every ::::i w l notitle, '' u 9:10 every ::i::i w p ps 0.4 pt 7 lc "red" t 'Marte', 'resultados_posiciones.txt' u 11:12 every ::::i w l notitle, '' u 11:12 every ::i::i w p ps 1.5 pt 7 t 'Jupiter', 'resultados_posiciones.txt' u 13:14 every ::::i w l notitle, '' u 13:14 every ::i::i w p ps 1.25 pt 7 t 'Saturno', 'resultados_posiciones.txt' u 15:16 every ::::i w l notitle, '' u 15:16 every ::i::i w p ps 0.9 pt 7 lc "blue" t 'Urano', 'resultados_posiciones.txt' u 17:18 every ::::i w l notitle, '' u 17:18 every ::i::i w p ps 1.2 pt 7 lc "blue" t 'Neptuno', 'resultados_posiciones.txt' u 19:20 every ::::i w l notitle, '' u 19:20 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Pluton', 'resultados_posiciones.txt' u 1:2 every ::::i w l notitle, '' u 1:2 every ::i::i w p ps 2 pt 7 lc "yellow" t 'Sol'}
+
+
+
+set term gif size 500,500 animate delay 5 optimize
+set xrange[-40:40]
+set yrange[-40:40]
+set output "SistemaSolarWENO_noTra.gif"
+do for [i=1:9set xra[-2:2]99] {plot 'resultados_posiciones.txt' u 3:4 every ::i::i w p ps 0.2 pt 7 lc "blue" t 'Mercurio', '' u 5:6 every ::i::i w p ps 0.3 pt 7 lc "green" t 'Venus', '' u 7:8 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Tierra', '' u 9:10 every ::i::i w p ps 0.4 pt 7 lc "red" t 'Marte', '' u 11:12 every ::i::i w p ps 1.5 pt 7 t 'Jupiter', '' u 13:14 every ::i::i w p ps 1.25 pt 7 t 'Saturno', '' u 15:16 every ::i::i w p ps 0.9 pt 7 lc "blue" t 'Urano', '' u 17:18 every ::i::i w p ps 1.2 pt 7 lc "blue" t 'Neptuno', '' u 19:20 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Pluton', '' u 1:2 every ::i::i w p ps 2 pt 7 lc "yellow" t 'Sol'}
+
+
+
+
+//Gif clase
+
+do for [i=1:999] {plot 'resultados_posiciones.txt' u 3:4 every ::::i w l notitle, '' u 3:4 every ::i::i w p ps 0.2 pt 7 lc "blue" t 'Mercurio', 'resultados_posiciones.txt' u 5:6 every ::::i w l notitle, '' u 5:6 every ::i::i w p ps 0.3 pt 7 lc "green" t 'Venus', 'resultados_posiciones.txt' u 7:8 every ::::i w l notitle, '' u 7:8 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Tierra', 'resultados_posiciones.txt' u 9:10 every ::::i w l notitle, '' u 9:10 every ::i::i w p ps 0.4 pt 7 lc "red" t 'Marte', '' u 1:2 every ::i::i w p ps 0.5 pt 7 lc 'yellow' t 'Sol'}
+
+
+//Geocentrico
+
+do for [i=1:999] {plot 'geocentrico.txt' u 3:4 every ::::i w l notitle, '' u 3:4 every ::i::i w p ps 0.2 pt 7 lc "blue" t 'Mercurio', 'geocentrico.txt' u 5:6 every ::::i w l notitle, '' u 5:6 every ::i::i w p ps 0.3 pt 7 lc "green" t 'Venus', 'geocentrico.txt' u 7:8 every ::::i w l notitle, '' u 7:8 every ::i::i w p ps 0.4 pt 7 lc "blue" t 'Tierra', 'geocentrico.txt' u 9:10 every ::::i w l notitle, '' u 9:10 every ::i::i w p ps 0.4 pt 7 lc "red" t 'Marte', '' u 1:2 every ::i::i w p ps 0.5 pt 7 lc 'yellow' t 'Sol', '' u 1:2 every ::::i w l notitle}
+
+
+
+

@@ -1,0 +1,6 @@
+Periodo planeta 1: 88.3437 dias
+Periodo planeta 2: 224.347 dias
+Periodo planeta 3: 366.161 dias
+Periodo planeta 4: 684.664 dias
+Periodo planeta 5: 4378.83 dias
+Periodo planeta 6: 11082.5 dias
